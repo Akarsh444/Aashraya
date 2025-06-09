@@ -5,6 +5,8 @@ import { ContactPageComplete } from './components/contact.tsx';
 import Footer from './components/Footer.jsx';
 import { Toaster } from './components/ui/toaster.tsx';
 import OurTeamPage from './pages/OurTeamPage';
+import ProjectsImpactPage from './pages/ProjectsImpactPage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
 
 const colors = {
   darkBlue: '#022b3a',
@@ -22,6 +24,8 @@ function App() {
         <Routes>
           <Route path="/" element={<ContactPageComplete />} />
           <Route path="/our-team" element={<OurTeamPage />} />
+          <Route path="/projects-impact" element={<ProjectsImpactPage />} />
+          <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
         </Routes>
       </main>
       <Footer />

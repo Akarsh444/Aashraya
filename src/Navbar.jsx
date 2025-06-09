@@ -25,13 +25,8 @@ const Navbar = () => {
         ]
     },
     { 
-      label: "Programs", 
-      href: "#", 
-        dropdown: [
-        { label: "Education", href: "#education" },
-        { label: "Healthcare", href: "#healthcare" },
-        { label: "Community Development", href: "#community" },
-        ]
+      label: "Projects", 
+      href: "/projects-impact" 
     },
     { 
       label: "Get Involved", 
@@ -76,7 +71,7 @@ const Navbar = () => {
           className="fixed top-4 right-4 z-50 bg-primary p-2 rounded-full shadow-lg cursor-pointer transition-all duration-300 hover:scale-110"
           onClick={() => { setIsHidden(false); setIsMobileMenuOpen(true); }}
         >
-          <Menu className="text-primary-foreground" />
+          <Menu className="text-gray-600" />
         </div>
       )}
 
