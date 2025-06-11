@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar.jsx';
 import { ContactPageComplete } from './components/contact.tsx';
@@ -7,6 +7,7 @@ import { Toaster } from './components/ui/toaster.tsx';
 import OurTeamPage from './pages/OurTeamPage';
 import ProjectsImpactPage from './pages/ProjectsImpactPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
+import VolunteerPage from './pages/VolunteerPage';
 
 const colors = {
   darkBlue: '#022b3a',
@@ -17,15 +18,27 @@ const colors = {
 };
 
 function App() {
+  const navbarRef = useRef(null);
+  const [mainPaddingTop, setMainPaddingTop] = useState(0);
+
+  useEffect(() => {
+    if (navbarRef.current) {
+      const height = navbarRef.current.offsetHeight;
+      console.log('Navbar Height:', height);
+      setMainPaddingTop(height);
+    }
+  }, [navbarRef.current]);
+
   return (
     <div className="flex flex-col min-h-screen" style={{ background: '#ffffff', fontFamily: 'Helvetica Neue, sans-serif' }}>
-      <Navbar />
-      <main style={{ minHeight: '60vh' }}>
+      <Navbar ref={navbarRef} />
+      <main style={{ minHeight: '60vh', paddingTop: `${mainPaddingTop}px` }}>
         <Routes>
           <Route path="/" element={<ContactPageComplete />} />
           <Route path="/our-team" element={<OurTeamPage />} />
           <Route path="/projects-impact" element={<ProjectsImpactPage />} />
           <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
+          <Route path="/volunteer" element={<VolunteerPage />} />
         </Routes>
       </main>
       <Footer />

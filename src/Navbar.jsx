@@ -7,7 +7,7 @@ import { Button } from "./components/ui/button.jsx";
 
 const logoUrl = 'https://prashraya.org/wp-content/uploads/elementor/thumbs/354150415_220248024272103_8189691252379910077_n-qtir2fw9zqtc7qrxft7est9yuk34qnuch8ihrepctc.jpg';
 
-const Navbar = () => {
+const Navbar = React.forwardRef(({ }, ref) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,15 +24,12 @@ const Navbar = () => {
         { label: "Our History", href: "#our-history" },
         ]
     },
-    { 
-      label: "Projects", 
-      href: "/projects-impact" 
-    },
+    { label: "Projects & Impact", href: "/projects-impact" },
     { 
       label: "Get Involved", 
       href: "#", 
         dropdown: [
-        { label: "Volunteer", href: "#volunteer" },
+        { label: "Volunteer", href: "/volunteer" },
         { label: "Partner With Us", href: "#partner" },
         { label: "Fundraise", href: "#fundraise" },
       ] 
@@ -71,11 +68,12 @@ const Navbar = () => {
           className="fixed top-4 right-4 z-50 bg-primary p-2 rounded-full shadow-lg cursor-pointer transition-all duration-300 hover:scale-110"
           onClick={() => { setIsHidden(false); setIsMobileMenuOpen(true); }}
         >
-          <Menu className="text-gray-600" />
+          <Menu className="text-primary-foreground" />
         </div>
       )}
 
       <header 
+        ref={ref}
         className={cn(
           "fixed w-full transition-all duration-500 z-40",
           isHidden ? "transform -translate-y-full invisible opacity-0" : "transform translate-y-0 visible opacity-100",
@@ -211,14 +209,8 @@ const Navbar = () => {
                 )}
         </div>
       </header>
-      
-      {/* Spacer element to prevent content from being hidden under the navbar */}
-      <div className={cn(
-        "transition-all duration-300",
-        isScrolled ? "h-16" : "h-20"
-      )} />
     </>
   );
-};
+});
 
 export default Navbar; 
