@@ -14,7 +14,8 @@ export const blogData = [
     date: "Feb 12, 2023",
     readTime: "5 min read",
     author: "Dr. Neha Sharma",
-    image: "https://images.unsplash.com/photo-1588776814546-ec7e25944d63?w=400&h=240&fit=crop"
+    image: "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=400&h=240&fit=crop"
+
   },
   {
     id: 8,
