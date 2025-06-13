@@ -8,6 +8,8 @@ import OurTeamPage from './pages/OurTeamPage';
 import ProjectsImpactPage from './pages/ProjectsImpactPage';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import VolunteerPage from './pages/VolunteerPage';
+import BlogPage from './pages/BlogPage';
+import BlogDetailPage from './pages/BlogDetailPage';
 
 const colors = {
   darkBlue: '#022b3a',
@@ -39,6 +41,8 @@ function App() {
           <Route path="/projects-impact" element={<ProjectsImpactPage />} />
           <Route path="/projects/:projectId" element={<ProjectDetailPage />} />
           <Route path="/volunteer" element={<VolunteerPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:blogId" element={<BlogDetailPage />} />
         </Routes>
       </main>
       <Footer />
